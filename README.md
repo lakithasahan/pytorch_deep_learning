@@ -5,13 +5,17 @@ In this example we use Pytorch deep learning library to classify  famous IRIS da
 
 ![2 -ann-structure](https://user-images.githubusercontent.com/24733068/65293767-b2597180-db9f-11e9-8293-f7b5c78c7b1b.jpg)
 
-Lets see how we can implement a simple 2 layer Neural Network using python library numpy.
+## Lets see how we can implement a simple 2 layer Neural Network using python library numpy.
 
-## As you can observe from the above nn structure we need to define few functions.
-Step 1- You need to make a Forward pass,Inputs should be multiply elements wise with the initaly initialised random weights w1 at      the 1st layer then output from that layer should passed through a activation function such as RELU to the next layer to multiply with the next layer random weights w2 to obtain the initial prediction output.
-Step 2- Now you need find the Loss of data by compairing predicted output in step 1 with the desired output it should deliver.
-Step 3- In this step we need to compute the gradients of w1 and w2 with respect to loss calculated in above step.
-Step 4- Now you need use that gradients of w1 and w2(w1_grad,w2_grad)to update the existing weights w1 and w2 with a predefined learning rate.
+## As you can observe from the above nn structure we need to define few levels(Input,Hidden and Output).
+
+**Step 1**- You need to make a Forward pass,Inputs should be multiply elements wise with the initaly initialised random weights w1 at        the 1st layer then output from that layer should passed through a activation function such as RELU to the next layer to multiply with the next layer random weights w2 to obtain the initial prediction output.  
+
+**Step 2**- Now you need find the Loss of data by compairing predicted output in step 1 with the desired output it should deliver.
+
+**Step 3**- In this step we need to compute the gradients of w1 and w2 with respect to loss calculated in above step. 
+
+**Step 4**- Now you need use that gradients of w1 and w2(w1_grad,w2_grad)to update the existing weights w1 and w2 with a predefined learning rate.                                                                                                                                  
 
 
 
