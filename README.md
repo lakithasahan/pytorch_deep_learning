@@ -82,6 +82,29 @@ for t in range(500):
 
 ![pytorch-cheat](https://user-images.githubusercontent.com/24733068/65290717-b5e6fb80-db93-11e9-905f-159e41df2f30.jpg)
 
+## Below show a example code i wrote to classify IRIS data using PyTorch deep learning.Complete code can be found in the download section.
+In PyTorch all your layers can be stacked in nn.sequential model given, For Further undestanding NN i created to classify IRIS data consit Input level,one Hidden level and a Output level.
+
+Number of attributes in the IRIS dataset=4                                                                                                              
+Number of outputs in IRIS dataset=3                                                                                                                     
+Assumed Number of Hidden Layers=100                                                                                                                                     
+```python
+
+model = nn.Sequential(
+
+    nn.Linear(n_in, n_h),    // Initialy data send to Linear(Input) layer (4X100)
+    torch.nn.ReLU(),        // and then the result above layer goes to Activation function  
+    nn.Linear(n_h, n_h),    //Then result output from the above activation layers goes to next Linear(Hidden) Layer(100x100) 
+    torch.nn.ReLU(),        //Result from Hidden layer goes to a activation function
+    nn.Linear(n_h, n_out),  //Then result output from the above activation layers goes to next Linear(output) Layer(100x3) 
+  
+
+)
+
+
+
+```
+
 
 
 
