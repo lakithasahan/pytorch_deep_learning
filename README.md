@@ -1,5 +1,5 @@
 # pytorch_deep_learning
-In this example we use Pytorch deep learning library to classify  famous IRIS dataset.
+In this example we use Pytorch deep learning library to classify  famous IRIS dataset.You can download the complete code with dataset from download section.
 
 ## Below shows a simple structure of a Neural Network 
 
