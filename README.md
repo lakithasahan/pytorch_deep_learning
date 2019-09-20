@@ -92,53 +92,26 @@ Assumed Number of Hidden Layers=100
 
 model = nn.Sequential(
 
-    nn.Linear(n_in, n_h),    // Initialy data send to Linear(Input) layer (4X100)
-    torch.nn.ReLU(),        // and then the result above layer goes to Activation function  
-    nn.Linear(n_h, n_h),    //Then result output from the above activation layers goes to next Linear(Hidden) Layer(100x100) 
-    torch.nn.ReLU(),        //Result from Hidden layer goes to a activation function
-    nn.Linear(n_h, n_out),  //Then result output from the above activation layers goes to next Linear(output) Layer(100x3) 
+    nn.Linear(n_in, n_h),   # Initialy data send to Linear(Input) layer (4X100)
+    torch.nn.ReLU(),        # and then the result above layer goes to Activation function  
+    nn.Linear(n_h, n_h),    #Then result output from the above activation layers goes to next Linear(Hidden) Layer(100x100) 
+    torch.nn.ReLU(),        #Result from Hidden layer goes to a activation function
+    nn.Linear(n_h, n_out),  #Then result output from the above activation layers goes to next Linear(output) Layer(100x3) 
   
 
 )
 
-
-
 ```
+```python
 
-
-
-
-```
-
-train_X, test_X, train_y, test_y = train_test_split(dataset[dataset.columns[0:4]].values,
-                                                    dataset.variety.values, test_size=0.2)
-
-tensor_train_x = Variable(torch.Tensor(train_X).float())
-tensor_train_y = Variable(torch.Tensor(train_y).long())
-
-tensor_test_x = Variable(torch.Tensor(test_X).float())
-tensor_test_y = Variable(torch.Tensor(test_y).long())
-
-# Defining input size, hidden layer size, output size and batch size respectively
-n_in, n_h, n_out, batch_size = 4, 100, 3, 135
-
-print(tensor_test_x)
-# print(ll)
-
-model = nn.Sequential(
-
-    nn.Linear(n_in, n_h),
-    torch.nn.ReLU(),
-    nn.Linear(n_h, n_h),
-    torch.nn.ReLU(),
-    nn.Linear(n_h, n_out),
-    #nn.Softmax(dim=1),
-
-
-)
-
+#define loss function 
 criterion = nn.CrossEntropyLoss()
-# Construct the optimizer (Stochastic Gradient Descent in this case)
+
+# Use the optim package to define an Optimizer that will update the weights of
+# the model for us. Here we will use Adam; the optim package contains many other
+# optimization algoriths. The first argument to the Adam constructor tells the
+# optimizer which Tensors it should update.
+
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
 for epoch in range(2000):
@@ -149,29 +122,31 @@ for epoch in range(2000):
     loss = criterion(y_pred, tensor_train_y)
     if epoch % 100 == 0:
         print('number of epoch', epoch, 'loss', loss.item())
+        
+        
+   # Before the backward pass, use the optimizer object to zero all of the
+    # gradients for the variables it will update (which are the learnable
+    # weights of the model). This is because by default, gradients are
+    # accumulated in buffers( i.e, not overwritten) whenever .backward()
+    # is called. Checkout docs of torch.autograd.backward for more details.
     optimizer.zero_grad()
+
+    # Backward pass: compute gradient of the loss with respect to model
+    # parameters
     loss.backward()
+
+    # Calling the step function on an Optimizer makes an update to its
+    # parameters
     optimizer.step()
 
 
-test_pred=model(tensor_test_x)
-
-
-print(test_pred)
-_, predict_y = torch.max(test_pred, 1)
-
-print(tensor_test_y)
-print(predict_y)
-
-# print(predict_y.tolist())
-# print([train_y])
-print('Accuracy', accuracy_score(tensor_test_y, predict_y))
-print('micro precision', precision_score(tensor_test_y, predict_y, average='micro'))
-print('macro recall', recall_score(tensor_test_y, predict_y, average='macro'))
-print('micro recall', recall_score(tensor_test_y, predict_y, average='micro'))
-
-
 ```
+
+
+
+
+
+
 
 
 
