@@ -1,6 +1,6 @@
 # pytorch_deep_learning
 In this example we use Pytorch deep learning library to classify  famous IRIS dataset.
-
+https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwiDu_ehk97kAhXgILcAHY9jB_cQjRx6BAgBEAQ&url=https%3A%2F%2Fmc.ai%2Fdeep-learning-explained%2F&psig=AOvVaw2eqp05fU1KHP4NWUqv-kpO&ust=1569025941855369
 
 ```
 
@@ -66,3 +66,7 @@ print('micro recall', recall_score(tensor_test_y, predict_y, average='micro'))
 
 
 ```
+
+
+
+
