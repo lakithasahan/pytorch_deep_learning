@@ -1,5 +1,5 @@
-# pytorch_deep_learning
-In this example we use Pytorch deep learning library to classify  famous IRIS dataset.You can download the complete code with dataset from download section.
+# PyTorch_deep_learning
+In this example we use PyTorch deep learning library to classify  famous IRIS data set. You can download the complete code with data set from download section.
 
 ## Below shows a simple structure of a Neural Network 
 
@@ -9,9 +9,9 @@ In this example we use Pytorch deep learning library to classify  famous IRIS da
 
 ## As you can observe from the above nn structure we need to define few levels(Input,Hidden and Output).
 
-**Step 1**- You need to make a Forward pass,Inputs should be multiply elements wise with the initaly initialised random weights w1 at        the 1st layer then output from that layer should passed through a activation function such as RELU to the next layer to multiply with the next layer with predefined weights w2 to obtain the initial prediction output.  
+**Step 1**- You need to make a Forward pass,Inputs should be multiply elements wise with the initially initialised random weights w1 at        the 1st layer then output from that layer should passed through a activation function such as RELU to the next layer to multiply with the next layer with predefined weights w2 to obtain the initial prediction output.  
 
-**Step 2**- Now you need find the Loss of data by compairing predicted output in step 1 with the desired output it should deliver.
+**Step 2**- Now you need find the Loss of data by comparing predicted output in step 1 with the desired output it should deliver.
 
 **Step 3**- In this step we need to compute the gradients of w1 and w2 with respect to loss calculated in above step. 
 
@@ -70,7 +70,7 @@ for t in range(500):
 
 
 
-## Since now you have a basic idea how the NN can be implement using numpy, lets move to pytorch implementation.
+## Since now you have a basic idea how the NN can be implement using numpy, lets move to PyTorch implementation.
 
 ## At its core, PyTorch provides two main features:
 
@@ -82,8 +82,8 @@ for t in range(500):
 
 ![pytorch-cheat](https://user-images.githubusercontent.com/24733068/65290717-b5e6fb80-db93-11e9-905f-159e41df2f30.jpg)
 
-## Below show a example code i wrote to classify IRIS data using PyTorch deep learning.Complete code can be found in the download section.
-In PyTorch all your layers can be stacked in nn.sequential package given, For Further undestanding NN i created to classify IRIS data consit Input level,one Hidden level and a Output level.
+## Below show a example code i wrote to classify IRIS data using PyTorch deep learning. Complete code can be found in the download section.
+In PyTorch all your layers can be stacked in nn.sequential package given, For Further understanding NN i created to classify IRIS data consist Input level,one Hidden level and a Output level.
 
 Number of attributes in the IRIS dataset=4                                                                                                              
 Number of outputs in IRIS dataset=3                                                                                                                     
@@ -92,7 +92,7 @@ Assumed Number of Hidden Layers=100
 
 model = nn.Sequential(
 
-    nn.Linear(n_in, n_h),   # Initialy data send to Linear(Input) layer (4X100)
+    nn.Linear(n_in, n_h),   # Initial data send to Linear(Input) layer (4X100)
     torch.nn.ReLU(),        # and then the result above layer goes to Activation function  
     nn.Linear(n_h, n_h),    #Then result output from the above activation layers goes to next Linear(Hidden) Layer(100x100) 
     torch.nn.ReLU(),        #Result from Hidden layer goes to a activation function
@@ -144,11 +144,3 @@ for epoch in range(2000):
 
 ## For further in depth undestanding functionalties of PyTorch Please do refer to below tutorial.
 https://www.tutorialspoint.com/pytorch/index.htm
-
-
-
-
-
-
-
-
