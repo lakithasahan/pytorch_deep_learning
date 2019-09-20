@@ -8,8 +8,9 @@ In this example we use Pytorch deep learning library to classify  famous IRIS da
 
 ## At its core, PyTorch provides two main features:
 
-    *An n-dimensional Tensor, similar to numpy but can run on GPUs**
-    Automatic differentiation for building and training neural networks
+   **An n-dimentional Tesnor,Similar to numpy but with GPU accelaration**
+   **Automatic diffrentiation for building and training neural networks**
+   
 
 
 
