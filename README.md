@@ -20,12 +20,6 @@ In this example we use Pytorch deep learning library to classify  famous IRIS da
 
 **Repeat the above steps several time to obtain desired result(epochs)**
 
-## At its core, PyTorch provides two main features:
-
-   **An n-dimentional Tesnor,Similar to numpy but with GPU accelaration**
-   **Automatic diffrentiation for building and training neural networks**
-   
-
 
 ### Please find code for simple NN example created using Numpy below.
 
@@ -77,6 +71,12 @@ for t in range(500):
 
 
 ## Since now you have a basic idea how the NN can be implement using numpy, lets move to pytorch implementation.
+
+## At its core, PyTorch provides two main features:
+
+   **An n-dimentional Tesnor,Similar to numpy but with GPU accelaration**                                                                             
+   **Automatic diffrentiation for building and training neural networks**                                                                           
+   
 
 **Below shows a PyTorch cheat sheet which will be extreamly important in creating your desired network**
 
