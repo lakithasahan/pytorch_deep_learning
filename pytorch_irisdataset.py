@@ -48,20 +48,19 @@ tensor_train_y = Variable(torch.Tensor(train_y).long())
 tensor_test_x = Variable(torch.Tensor(test_X).float())
 tensor_test_y = Variable(torch.Tensor(test_y).long())
 
-# Defining input size, hidden layer size, output size and batch size respectively
-n_in, n_h, n_out, batch_size = 4, 100, 3, 135
+
 
 print(tensor_test_x)
 # print(ll)
 
 model = nn.Sequential(
-
-    nn.Linear(n_in, n_h),
+    nn.Linear(4, 100),
     torch.nn.ReLU(),
-    nn.Linear(n_h, 10),
-    #torch.nn.ReLU(),
-    nn.Linear(10, n_out),
-    #nn.Softmax(dim=1),
+    nn.Linear(100, 50),
+    torch.nn.ReLU(),
+  nn.Linear(50, 3),
+    nn.Softmax(dim=1),
+
 
 
 )
