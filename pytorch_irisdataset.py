@@ -1,10 +1,12 @@
+import numpy as np
 import torch
 import torch.nn as nn
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score
 from torch.autograd import Variable
-
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
 device = torch.device("cpu")
 device = torch.device("cuda:0")  # Uncomment this to run on GPU
 
@@ -38,7 +40,7 @@ dataset.loc[dataset.variety == 'Versicolor', 'variety'] = 1
 dataset.loc[dataset.variety == 'Virginica', 'variety'] = 2
 
 train_X, test_X, train_y, test_y = train_test_split(dataset[dataset.columns[0:4]].values,
-                                                    dataset.variety.values, test_size=0.8)
+                                                    dataset.variety.values, test_size=0.2)
 
 tensor_train_x = Variable(torch.Tensor(train_X).float())
 tensor_train_y = Variable(torch.Tensor(train_y).long())
@@ -56,9 +58,9 @@ model = nn.Sequential(
 
     nn.Linear(n_in, n_h),
     torch.nn.ReLU(),
-    nn.Linear(n_h, n_h),
-    torch.nn.ReLU(),
-    nn.Linear(n_h, n_out),
+    nn.Linear(n_h, 10),
+    #torch.nn.ReLU(),
+    nn.Linear(10, n_out),
     #nn.Softmax(dim=1),
 
 
@@ -68,7 +70,7 @@ criterion = nn.CrossEntropyLoss()
 # Construct the optimizer (Stochastic Gradient Descent in this case)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
-for epoch in range(1000):
+for epoch in range(2000):
     # Forward pass: Compute predicted y by passing x to the model
     y_pred = model(tensor_train_x)
 
@@ -96,3 +98,22 @@ print('Accuracy', accuracy_score(tensor_test_y, predict_y))
 print('micro precision', precision_score(tensor_test_y, predict_y, average='micro'))
 print('macro recall', recall_score(tensor_test_y, predict_y, average='macro'))
 print('micro recall', recall_score(tensor_test_y, predict_y, average='micro'))
+
+
+colormap = np.array(['#f50000', '#f58800', '#0b599f'])
+pop_a = mpatches.Patch(color='#f50000', label='Setosa')
+pop_b = mpatches.Patch(color='#f58800', label='Versicolor')
+pop_c = mpatches.Patch(color='#0b599f', label='Virginica')
+
+plt.subplot(2, 1, 1)
+plt.scatter(test_X[:, 0], test_X[:, 1], c=colormap[predict_y], cmap='Paired')
+plt.title("PyTorch NN Model predicted target output")
+
+plt.subplot(2, 1, 2)
+plt.scatter(test_X[:, 0], test_X[:, 1], c=colormap[tensor_test_y], cmap='Paired')
+plt.title("Actual target output")
+
+
+plt.tight_layout()
+plt.legend(handles=[pop_a, pop_b, pop_c])
+plt.show()
