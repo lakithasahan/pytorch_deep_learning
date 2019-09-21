@@ -89,7 +89,7 @@ Number of attributes in the IRIS dataset=4
 Number of outputs in IRIS dataset=3                                                                                                                     
 Assumed Number of Hidden Layers=100   
 
-![pytorchpred](https://user-images.githubusercontent.com/24733068/65365319-d1b5d480-dc5b-11e9-81f4-9689fe3b4191.png)
+![pytorchpred](https://user-images.githubusercontent.com/24733068/65365956-8e5e6480-dc61-11e9-8764-7c2d8cee932e.png)
 
 
 ```python
