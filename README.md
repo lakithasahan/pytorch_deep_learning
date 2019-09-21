@@ -87,7 +87,11 @@ In PyTorch all your layers can be stacked in nn.sequential package given, For Fu
 
 Number of attributes in the IRIS dataset=4                                                                                                              
 Number of outputs in IRIS dataset=3                                                                                                                     
-Assumed Number of Hidden Layers=100                                                                                                                                     
+Assumed Number of Hidden Layers=100   
+
+![pytorchpred](https://user-images.githubusercontent.com/24733068/65365319-d1b5d480-dc5b-11e9-81f4-9689fe3b4191.png)
+
+
 ```python
 
 model = nn.Sequential(
